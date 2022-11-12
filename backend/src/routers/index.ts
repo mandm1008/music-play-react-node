@@ -1,5 +1,5 @@
 import { Express } from 'express'
-import { ZingMp3Controller } from 'src/controllers'
+import { ZingMp3Controller } from '../controllers'
 
 function routing(app: Express) {
   app.get('/search', ZingMp3Controller.search)
