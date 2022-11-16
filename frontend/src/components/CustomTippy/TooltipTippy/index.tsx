@@ -21,6 +21,7 @@ function TooltipTippy({
 }) {
   return noDiv ? (
     <Tippy
+      appendTo={() => document.body}
       placement={placement}
       content={
         <div

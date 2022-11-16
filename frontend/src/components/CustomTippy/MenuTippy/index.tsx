@@ -34,6 +34,7 @@ function MenuTippy({
 }) {
   return (
     <Tippy
+      appendTo={() => document.body}
       interactive
       trigger="click"
       placement={placement}

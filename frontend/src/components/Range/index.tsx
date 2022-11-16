@@ -9,8 +9,6 @@ function Range() {
   const [state, dispatch] = useMusic()
   const wrapperElement = useRef<HTMLDivElement>()
 
-  console.log(state, dispatch)
-
   return (
     <div className={cx('wrapper')}>
       <p className={cx('time')}>00:00</p>

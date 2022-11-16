@@ -17,10 +17,17 @@ function Search() {
   const inputElement = useRef<HTMLInputElement>()
 
   useEffect(() => {
-    if (searchValue.length === 0) return
+    if (debounceSearch.length === 0) return
 
-    search(encodeURIComponent(searchValue))
-      .then((res) => res.json())
+    search(encodeURIComponent(debounceSearch))
+      .then((res) => {
+        if (res.error) {
+          searchFailed()
+          return
+        }
+
+        return res.data
+      })
       .then((res) => {
         const results = res.data && {
           msg: res.msg,
@@ -31,8 +38,11 @@ function Search() {
 
         setSearchResults(results)
       })
-      .catch(() => setSearchResults({ msg: 'Failed' }))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      .catch(searchFailed)
+
+    function searchFailed() {
+      setSearchResults({ msg: 'Failed' })
+    }
   }, [debounceSearch])
 
   function handleChangeInput(e: React.ChangeEvent<HTMLInputElement>) {

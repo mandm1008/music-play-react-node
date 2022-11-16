@@ -6,7 +6,7 @@ import Button from '~/components/Button'
 import { BackIcon, ForwardIcon, SettingIcon, UploadIcon, VipIcon } from '~/components/Icons'
 import images from '~/assets/images'
 import { MenuTippy, TooltipTippy } from '~/components/CustomTippy'
-import { DataMenu, DataSettings } from './components/Constant'
+import { DataMenu, DataSettings } from './components/constant'
 import Search from './components/Search'
 // import useMusic from '~/hooks/useMusic'
 
@@ -50,12 +50,12 @@ function Header() {
         <TooltipTippy content="Tải lên">
           <Button icon={{ Icon: UploadIcon, size: 20 }} />
         </TooltipTippy>
-        <MenuTippy data={DataSettings}>
+        <MenuTippy data={DataSettings as any}>
           <TooltipTippy content="Cài đặt">
             <Button icon={{ Icon: SettingIcon, size: 20 }} />
           </TooltipTippy>
         </MenuTippy>
-        <MenuTippy data={DataMenu}>
+        <MenuTippy data={DataMenu as any}>
           <Button
             image={{
               src: 'https://haycafe.vn/wp-content/uploads/2021/11/Anh-avatar-dep-chat-lam-hinh-dai-dien.jpg',

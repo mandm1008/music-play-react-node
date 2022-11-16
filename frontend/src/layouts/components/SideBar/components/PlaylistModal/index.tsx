@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { TooltipTippy } from '~/components/CustomTippy'
 import { ClearIcon } from '~/components/Icons'
 import Modal from '~/components/Modal'
-import { OptionsPlaylist } from '../Constant'
+import { OptionsPlaylist } from '../constant'
 import styles from './PlaylistModal.module.scss'
 
 const cx = classNames.bind(styles)

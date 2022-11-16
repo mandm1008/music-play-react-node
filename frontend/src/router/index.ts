@@ -1,9 +1,9 @@
-import Chart from '~/pages/Chart'
-import Follow from '~/pages/Follow'
-import Home from '~/pages/Home'
-import Library from '~/pages/Library'
-import NewMusic from '~/pages/NewMusic'
-import Radio from '~/pages/Radio'
+import Chart from '../pages/Chart'
+import Follow from '../pages/Follow'
+import Home from '../pages/Home'
+import Library from '../pages/Library'
+import NewMusic from '../pages/NewMusic'
+import Radio from '../pages/Radio'
 
 type Route = {
   path: string

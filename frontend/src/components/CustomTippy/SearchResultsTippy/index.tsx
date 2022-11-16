@@ -23,6 +23,7 @@ function SearchResultsTippy({
 }) {
   return (
     <Tippy
+      appendTo={() => document.body}
       interactive
       visible={visible}
       onClickOutside={hide}

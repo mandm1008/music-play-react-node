@@ -5,14 +5,14 @@ import { TooltipTippy } from '~/components/CustomTippy'
 import Item from '../Item'
 import SettingModal from '../SettingModal'
 import styles from './Library.module.scss'
-import { LibraryItems } from '../Constant'
+import { LibraryItems } from '../constant'
 import { AddIcon, EditIcon } from '~/components/Icons'
 import PlaylistModal from '../PlaylistModal'
 
 const cx = classNames.bind(styles)
 
 function Library() {
-  const dataSettingLibraryItems = JSON.parse(localStorage.getItem('sidebar-library-items') || '')
+  const dataSettingLibraryItems = JSON.parse(localStorage.getItem('sidebar-library-items') || 'null')
   const [isOpenSettingModal, setIsOpenSettingModal] = useState(false)
   const [isOpenLibraryModal, setIsOpenLibraryModal] = useState(false)
   const [libraryUserItems, setLibraryUserItems] = useState(
