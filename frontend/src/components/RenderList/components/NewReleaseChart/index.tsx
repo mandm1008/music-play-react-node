@@ -1,5 +1,5 @@
 function NewReleaseChart({ data }: { data: any }) {
-  return null
+  return <h1>NewReleaseChart</h1>
 }
 
 export default NewReleaseChart

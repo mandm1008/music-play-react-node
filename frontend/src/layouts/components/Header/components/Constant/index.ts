@@ -16,20 +16,20 @@ import {
 
 export const DataSettings = [
   {
-    icon: { Icon: BlockIcon, size: 20 },
+    icon: { icon: BlockIcon, size: 20 },
     title: 'Danh sách chặn',
     props: {
       to: '/mymusic/blocked'
     }
   },
   {
-    icon: { Icon: QuailityIcon, size: 20 },
+    icon: { icon: QuailityIcon, size: 20 },
     title: 'Chất lượng nhạc',
     play: GoRightIcon,
     props: {}
   },
   {
-    icon: { Icon: PlayIcon, size: 20 },
+    icon: { icon: PlayIcon, size: 20 },
     title: 'Giao diện',
     play: GoRightIcon,
     props: {}
@@ -38,13 +38,13 @@ export const DataSettings = [
     spacer: true
   },
   {
-    icon: { Icon: InfoIcon, size: 20 },
+    icon: { icon: InfoIcon, size: 20 },
     title: 'Giới thiệu',
     props: {},
     sub: true
   },
   {
-    icon: { Icon: ReportIcon, size: 20 },
+    icon: { icon: ReportIcon, size: 20 },
     title: 'Góp ý',
     props: {
       href: 'https://github.com/'
@@ -52,7 +52,7 @@ export const DataSettings = [
     sub: true
   },
   {
-    icon: { Icon: PhoneIcon, size: 20 },
+    icon: { icon: PhoneIcon, size: 20 },
     title: 'Liên hệ',
     props: {
       to: '/contact'
@@ -60,7 +60,7 @@ export const DataSettings = [
     sub: true
   },
   {
-    icon: { Icon: AdsIcon, size: 20 },
+    icon: { icon: AdsIcon, size: 20 },
     title: 'Quảng cáo',
     props: {
       href: 'https://www.google.com'
@@ -68,7 +68,7 @@ export const DataSettings = [
     sub: true
   },
   {
-    icon: { Icon: TextIcon, size: 20 },
+    icon: { icon: TextIcon, size: 20 },
     title: 'Thoả thuận sử dụng',
     props: {
       to: '/tnc'
@@ -76,7 +76,7 @@ export const DataSettings = [
     sub: true
   },
   {
-    icon: { Icon: SheldIcon, size: 20 },
+    icon: { icon: SheldIcon, size: 20 },
     title: 'Chính sách bảo mật',
     props: {
       to: '/privacy'
@@ -87,14 +87,14 @@ export const DataSettings = [
 
 export const DataMenu = [
   {
-    icon: { Icon: VipIcon, size: 20 },
+    icon: { icon: VipIcon, size: 20 },
     title: 'Nâng cấp VIP',
     props: {
       to: '/vip'
     }
   },
   {
-    icon: { Icon: VipRadiusIcon, size: 20 },
+    icon: { icon: VipRadiusIcon, size: 20 },
     title: 'Mua Code VIP',
     props: {
       to: '/vip/byCode'
@@ -104,7 +104,7 @@ export const DataMenu = [
     spacer: true
   },
   {
-    icon: { Icon: LogoutIcon, size: 20 },
+    icon: { icon: LogoutIcon, size: 20 },
     title: 'Đăng xuất',
     props: {
       to: '/logout'

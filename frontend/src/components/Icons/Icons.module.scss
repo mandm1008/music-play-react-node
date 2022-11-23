@@ -1,7 +1,7 @@
 // main css
 .icon {
   display: block;
-  color: var(--text-color);
+  color: currentColor;
 }
 
 .icon::before {
@@ -207,4 +207,44 @@
 // home
 .go-left::before {
   content: '\7a';
+}
+
+.play-plus::before {
+  content: '\e010';
+}
+
+.play-prev::before {
+  content: '\52';
+}
+
+.add-circle::before {
+  content: '\ea09';
+}
+
+.comment::before {
+  content: '\71';
+}
+
+.link::before {
+  content: '\48';
+}
+
+.share::before {
+  content: '\2c';
+}
+
+.listen::before {
+  content: '\e007';
+}
+
+.download::before {
+  content: '\67';
+}
+
+.lyric::before {
+  content: '\ea07';
+}
+
+.denial::before {
+  content: '\74';
 }

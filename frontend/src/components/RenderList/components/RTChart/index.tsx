@@ -1,5 +1,5 @@
 function RTChart({ data }: { data: any }) {
-  return null
+  return <h1>RTChart</h1>
 }
 
 export default RTChart

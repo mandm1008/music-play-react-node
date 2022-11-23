@@ -9,6 +9,7 @@
   --hover-bg: #ffffff1a;
   --border-color: #ffffff1a;
   --checkbox-primary: #7200a1;
+  --purple-primary: #9b4de0;
 
   // text
   --text-color: #fff;
@@ -42,7 +43,7 @@
 
 html {
   height: 100%;
-  font-size: 62, 5%;
+  font-size: 62.5%;
 }
 
 body {
@@ -62,6 +63,10 @@ input {
 a[href] {
   text-decoration: none;
   color: var(--text-color);
+
+  &:hover {
+    color: var(--link-text-hover);
+  }
 }
 
 #root {
@@ -72,10 +77,12 @@ a[href] {
 ::-webkit-scrollbar {
   width: 4px;
 }
+
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   box-shadow: inset 0 0 6px #ffffff4d;
 }
+
 ::-webkit-scrollbar-track {
   border-radius: 4px;
 }

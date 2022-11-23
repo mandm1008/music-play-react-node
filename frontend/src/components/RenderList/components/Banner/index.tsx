@@ -7,6 +7,9 @@ import { GoLeftIcon, GoRightIcon } from '~/components/Icons'
 
 const cx = classNames.bind(styles)
 
+// defined constants
+const changeTime = 3000
+
 function Banner({ data }: { data: any }) {
   const [indexSlider, setIndexSlider] = useState(1)
   const [isAuto, setIsAuto] = useState(true)
@@ -19,7 +22,7 @@ function Banner({ data }: { data: any }) {
     const interval = isAuto
       ? setInterval(() => {
           setIndexSlider(isNext ? next : prev)
-        }, 3000)
+        }, changeTime)
       : undefined
 
     return () => clearInterval(interval)

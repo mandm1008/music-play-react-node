@@ -1,0 +1,30 @@
+.wrapper {
+  min-width: 240px;
+  max-width: 280px;
+  margin-left: -20px;
+  padding: 16px 8px;
+  border-radius: 12px;
+  background-color: var(--primary-bg);
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
+  overflow: hidden;
+
+  h3,
+  p {
+    font-family: 'Inter';
+  }
+
+  h3 {
+    color: var(--text-sub-color);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin: 4px 0;
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

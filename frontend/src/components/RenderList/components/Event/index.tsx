@@ -1,5 +1,5 @@
 function Event({ data }: { data: any }) {
-  return null
+  return <h1>Event</h1>
 }
 
 export default Event

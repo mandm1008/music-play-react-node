@@ -1,10 +1,12 @@
 .wrapper {
+  --time: 0.6s;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: auto;
+  margin: 32px 0;
 
   &:hover {
     .btn {
@@ -75,7 +77,7 @@
   width: 33.33%;
   height: auto;
   padding: 0 15px;
-  transition: transform .4s linear;
+  transition: transform var(--time) ease, opacity var(--time) ease-in-out;
   background-color: var(--layout-bg);
 
   img {
@@ -84,6 +86,7 @@
   }
 
   &.item-0 {
+    animation: visible-animation-left var(--time) ease;
     transform: translateX(-100%);
     z-index: 3;
   }
@@ -94,19 +97,47 @@
   }
 
   &.item-2 {
+    animation: visible-animation-right var(--time) ease;
     transform: translateX(100%);
     z-index: 1;
   }
 
   &.item-3 {
+    opacity: 0;
     transform: translateX(50%);
   }
 
   &.item-4 {
+    opacity: 0;
     transform: translateX(0);
   }
 
   &.item-5 {
+    opacity: 0;
     transform: translateX(-50%);
+  }
+}
+
+@keyframes visible-animation-left {
+  0% {
+    z-index: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    z-index: 1;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes visible-animation-right {
+  0% {
+    z-index: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    z-index: 1;
+    transform: translateX(100%);
   }
 }

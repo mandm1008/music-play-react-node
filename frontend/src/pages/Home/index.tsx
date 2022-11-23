@@ -21,7 +21,6 @@ function Home() {
 
   return (
     <div>
-      <h2>Home Page</h2>
       {homeData &&
         homeData.map((item: any, i: number) => <RenderList key={i} sectionType={item.sectionType} data={item} />)}
     </div>

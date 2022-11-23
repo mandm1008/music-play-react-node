@@ -68,3 +68,19 @@ export const ListMusicIcon: IconFun = ({ size, className }) => (
 
 //home
 export const GoLeftIcon: IconFun = ({ size, className }) => <Icon className={className} icon="go-left" size={size} />
+export const PlayPlusIcon: IconFun = ({ size, className }) => (
+  <Icon className={className} icon="play-plus" size={size} />
+)
+export const PlayPrevIcon: IconFun = ({ size, className }) => (
+  <Icon className={className} icon="play-prev" size={size} />
+)
+export const AddCircleIcon: IconFun = ({ size, className }) => (
+  <Icon className={className} icon="add-circle" size={size} />
+)
+export const CommentIcon: IconFun = ({ size, className }) => <Icon className={className} icon="comment" size={size} />
+export const LinkIcon: IconFun = ({ size, className }) => <Icon className={className} icon="link" size={size} />
+export const ShareIcon: IconFun = ({ size, className }) => <Icon className={className} icon="share" size={size} />
+export const ListenIcon: IconFun = ({ size, className }) => <Icon className={className} icon="listen" size={size} />
+export const DownloadIcon: IconFun = ({ size, className }) => <Icon className={className} icon="download" size={size} />
+export const LyricIcon: IconFun = ({ size, className }) => <Icon className={className} icon="lyric" size={size} />
+export const DenialIcon: IconFun = ({ size, className }) => <Icon className={className} icon="denial" size={size} />

@@ -1,5 +1,5 @@
 function LiveStream({ data }: { data: any }) {
-  return null
+  return <h1>LiveStream</h1>
 }
 
 export default LiveStream
