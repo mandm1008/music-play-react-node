@@ -1,5 +1,5 @@
-@import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
   // bg
@@ -30,8 +30,8 @@
 
 // fonts-icons
 @font-face {
-  font-family: 'mp3-zing';
-  src: url(/assets/fonts/mp3-zing.2a3edced.woff);
+  font-family: "mp3-zing";
+  src: url(/fonts/mp3-zing.woff);
 }
 
 // default css
@@ -49,7 +49,7 @@ html {
 body {
   height: 100%;
   background-color: var(--layout-bg);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--text-color);
 }
 

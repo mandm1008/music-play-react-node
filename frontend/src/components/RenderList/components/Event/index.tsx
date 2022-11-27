@@ -1,5 +1,5 @@
 function Event({ data }: { data: any }) {
-  return <h1>Event</h1>
+  return <h1>Event</h1>;
 }
 
-export default Event
+export default Event;

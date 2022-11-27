@@ -1,0 +1,7 @@
+.name {
+  color: var(--text-sub-color);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

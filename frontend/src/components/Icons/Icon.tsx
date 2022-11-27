@@ -1,19 +1,32 @@
-import classNames from 'classnames/bind'
-import styles from './Icons.module.scss'
+import { forwardRef } from "react";
+import classNames from "classnames/bind";
+import styles from "./Icons.module.scss";
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
-function Icon({ icon, size, className }: { icon: string; size: number; className?: string }) {
+function Icon(
+  {
+    icon,
+    size,
+    className,
+  }: {
+    icon: string;
+    size: number;
+    className?: string;
+  },
+  ref: any
+) {
   return (
     <i
+      ref={ref}
       style={{
-        width: size + 'px',
-        height: size + 'px',
-        fontSize: size + 'px'
+        width: size + "px",
+        height: size + "px",
+        fontSize: size + "px",
       }}
-      className={cx('icon', icon, className)}
+      className={cx("icon", icon, className)}
     ></i>
-  )
+  );
 }
 
-export default Icon
+export default forwardRef(Icon);

@@ -1,23 +1,23 @@
-import Tippy from '@tippyjs/react'
-import { Placement } from 'tippy.js'
-import classNames from 'classnames/bind'
-import styles from './TooltipTippy.module.scss'
-import 'tippy.js/dist/tippy.css'
+import Tippy from "@tippyjs/react";
+import { Placement } from "tippy.js";
+import classNames from "classnames/bind";
+import styles from "./TooltipTippy.module.scss";
+import "tippy.js/dist/tippy.css";
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
 function TooltipTippy({
   content,
   children,
-  placement = 'bottom',
+  placement = "bottom",
   noDiv,
-  noMG
+  noMG,
 }: {
-  content: React.ReactNode
-  children: React.ReactNode
-  placement?: Placement
-  noDiv?: boolean
-  noMG?: boolean
+  content: React.ReactNode;
+  children: React.ReactNode;
+  placement?: Placement;
+  noDiv?: boolean;
+  noMG?: boolean;
 }) {
   return noDiv ? (
     <Tippy
@@ -25,8 +25,8 @@ function TooltipTippy({
       placement={placement}
       content={
         <div
-          className={cx('tippy', {
-            noMG: noMG
+          className={cx("tippy", {
+            noMG: noMG,
           })}
         >
           {content}
@@ -38,14 +38,14 @@ function TooltipTippy({
   ) : (
     <Tippy placement={placement} content={content}>
       <div
-        className={cx('tippy', {
-          noMG: noMG
+        className={cx("tippy", {
+          noMG: noMG,
         })}
       >
         {children}
       </div>
     </Tippy>
-  )
+  );
 }
 
-export default TooltipTippy
+export default TooltipTippy;

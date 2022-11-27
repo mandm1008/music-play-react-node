@@ -1,5 +1,5 @@
 function Mix({ data }: { data: any }) {
-  return <h1>Mix</h1>
+  return <h1>Mix</h1>;
 }
 
-export default Mix
+export default Mix;

@@ -1,6 +1,6 @@
-type IconFun = (props: { size: number; className?: string }) => JSX.Element
+type IconFun = (props: { size: number; className?: string }) => JSX.Element;
 
 interface Icon {
-  icon: IconFun
-  size?: number
+  icon: IconFun;
+  size?: number;
 }

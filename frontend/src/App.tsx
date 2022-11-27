@@ -1,15 +1,16 @@
-import { Fragment } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { publicRoutes } from './router'
-import { DefaultLayout } from '~/layouts'
+import { Fragment } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { publicRoutes } from "./router";
+import { DefaultLayout } from "./layouts";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {publicRoutes.map((item, index) => {
-          const Layout = item.layout === null ? Fragment : (item.layout || DefaultLayout)
-          const Content = item.component
+          const Layout =
+            item.layout === null ? Fragment : item.layout || DefaultLayout;
+          const Content = item.component;
 
           return (
             <Route
@@ -21,11 +22,11 @@ function App() {
                 </Layout>
               }
             />
-          )
+          );
         })}
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

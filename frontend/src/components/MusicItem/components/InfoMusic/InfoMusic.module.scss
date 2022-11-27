@@ -1,0 +1,56 @@
+.ctn {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  width: 100%;
+  margin-bottom: 12px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 12px;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 40px;
+    overflow: hidden;
+
+    h3 {
+      font-size: 1.4rem;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--link-text-hover);
+      }
+    }
+
+    span {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text-sub-color);
+
+      & ~ span {
+        margin-left: 8px;
+      }
+
+      i {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+}

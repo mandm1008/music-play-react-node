@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function StringOfList({ data }: { data: any[] }) {
   return data.reduce(
@@ -6,19 +6,19 @@ function StringOfList({ data }: { data: any[] }) {
       i > 0
         ? [
             ...prev,
-            ', ',
+            ", ",
             <Link key={i} to={crr.link}>
               {crr.name}
-            </Link>
+            </Link>,
           ]
         : [
             ...prev,
             <Link key={i} to={crr.link}>
               {crr.name}
-            </Link>
+            </Link>,
           ],
     []
-  )
+  );
 }
 
-export default StringOfList
+export default StringOfList;

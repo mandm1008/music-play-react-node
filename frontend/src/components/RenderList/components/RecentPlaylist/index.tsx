@@ -1,5 +1,5 @@
 function RecentPlaylist({ data }: { data: any }) {
-  return null
+  return null;
 }
 
-export default RecentPlaylist
+export default RecentPlaylist;

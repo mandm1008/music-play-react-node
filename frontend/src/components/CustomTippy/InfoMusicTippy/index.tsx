@@ -1,21 +1,29 @@
-import { Link } from 'react-router-dom'
-import Tippy from '@tippyjs/react/headless'
-import { Placement } from 'tippy.js'
-import classNames from 'classnames/bind'
-import styles from './InfoMusicTippy.module.scss'
-import StringOfList from './StringOfList'
+import { Link } from "react-router-dom";
+import Tippy from "@tippyjs/react/headless";
+import { Placement } from "tippy.js";
+import classNames from "classnames/bind";
+import styles from "./InfoMusicTippy.module.scss";
+import StringOfList from "./StringOfList";
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
-function InfoMusicTippy({ children, placement, data }: { children: JSX.Element; placement?: Placement; data: any }) {
+function InfoMusicTippy({
+  children,
+  placement,
+  data,
+}: {
+  children: JSX.Element;
+  placement?: Placement;
+  data: any;
+}) {
   return (
     <Tippy
       appendTo={() => document.body}
       interactive
-      placement={placement || 'right'}
+      placement={placement || "right"}
       render={(attr) =>
         data && (
-          <div className={cx('wrapper')} {...attr}>
+          <div className={cx("wrapper")} {...attr}>
             {data.artists && <h3>Nghệ sĩ</h3>}
             {data.artists && (
               <p>
@@ -46,7 +54,7 @@ function InfoMusicTippy({ children, placement, data }: { children: JSX.Element; 
     >
       {children}
     </Tippy>
-  )
+  );
 }
 
-export default InfoMusicTippy
+export default InfoMusicTippy;

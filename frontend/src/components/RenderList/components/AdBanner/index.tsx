@@ -1,5 +1,5 @@
 function AdBanner({ data }: { data: any }) {
-  return null
+  return null;
 }
 
-export default AdBanner
+export default AdBanner;
