@@ -24,6 +24,10 @@
   background-color: var(--layout-bg);
   padding: 0 var(--content-pd);
   z-index: 9;
+
+  .inner {
+    padding-bottom: var(--player-height);
+  }
 }
 
 .player {
