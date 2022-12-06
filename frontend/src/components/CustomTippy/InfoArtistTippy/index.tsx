@@ -10,7 +10,6 @@ import { getK } from '~/tools'
 const cx = classNames.bind(styles)
 
 function InfoArtistTippy({ children, data }: { children: JSX.Element; data: any }) {
-  console.log(data)
   return (
     <Tippy
       appendTo={() => document.body}

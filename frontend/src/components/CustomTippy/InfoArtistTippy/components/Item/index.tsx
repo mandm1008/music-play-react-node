@@ -9,7 +9,6 @@ const cx = classNames.bind(styles)
 
 function Item({ id }: { id: string }) {
   const [data, setData] = useState<any>()
-  console.log(data)
 
   useEffect(() => {
     getListArtistSong(id, 1, 4)
@@ -18,24 +17,25 @@ function Item({ id }: { id: string }) {
   }, [])
 
   return data
-    ? data.items.map((item: any) => (
-        <div key={item.encodeId} className={cx('wrapper')}>
-          <div className={cx('image')}>
-            <img src={item.thumbnailM} alt={item.title} />
+    ? data.items &&
+        data.items.map((item: any) => (
+          <div key={item.encodeId} className={cx('wrapper')}>
+            <div className={cx('image')}>
+              <img src={item.thumbnailM} alt={item.title} />
 
-            <div className={cx('play')}>
-              <PlayNoIcon size={16} />
+              <div className={cx('play')}>
+                <PlayNoIcon size={16} />
+              </div>
             </div>
+
+            <Link to={item.link} className={cx('title')}>
+              <span>{item.title.substring(0, 10)}</span>
+              <span>{item.title.substring(10)}</span>
+            </Link>
+
+            <p className={cx('year')}>{new Date(item.releaseDate).getFullYear()}</p>
           </div>
-
-          <Link to={item.link} className={cx('title')}>
-            <span>{item.title.substring(0, 10)}</span>
-            <span>{item.title.substring(10)}</span>
-          </Link>
-
-          <p className={cx('year')}>{new Date(item.releaseDate).getFullYear()}</p>
-        </div>
-      ))
+        ))
     : null
 }
 

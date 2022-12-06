@@ -24,5 +24,11 @@ export default defineConfig({
   assetsInclude: ['src'],
   server: {
     port: 3000
+  },
+  css: {
+    modules: {
+      generateScopedName: '[name]-[local]__[hash:base64:5]',
+      hashPrefix: 'prefix'
+    }
   }
 })

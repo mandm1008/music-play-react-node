@@ -1,5 +1,5 @@
-@import "normalize.css";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   // bg
@@ -10,6 +10,7 @@
   --border-color: #ffffff1a;
   --checkbox-primary: #7200a1;
   --purple-primary: #9b4de0;
+  --linear-gradient-bg: linear-gradient(180deg, #740091, #2d1a4c);
 
   // text
   --text-color: #fff;
@@ -30,7 +31,7 @@
 
 // fonts-icons
 @font-face {
-  font-family: "mp3-zing";
+  font-family: 'mp3-zing';
   src: url(/fonts/mp3-zing.woff);
 }
 
@@ -49,7 +50,7 @@ html {
 body {
   height: 100%;
   background-color: var(--layout-bg);
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   color: var(--text-color);
 }
 
