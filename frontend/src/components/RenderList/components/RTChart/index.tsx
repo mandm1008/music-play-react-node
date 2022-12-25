@@ -9,7 +9,6 @@ import { getRankColor } from '~/tools'
 const cx = classNames.bind(styles)
 
 function RTChart({ data }: { data: any }) {
-  console.log(data)
   const percents = data.items.map((item: any, i: number) => ({
     encodeId: item.encodeId,
     percent:

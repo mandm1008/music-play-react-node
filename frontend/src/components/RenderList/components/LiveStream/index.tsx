@@ -1,5 +1,6 @@
 function LiveStream({ data }: { data: any }) {
-  return <h1>LiveStream</h1>;
+  console.log(data)
+  return <h1>LiveStream</h1>
 }
 
-export default LiveStream;
+export default LiveStream

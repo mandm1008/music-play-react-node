@@ -23,8 +23,6 @@ function MusicItem({
   const [isOpenLyric, setIsOpenLyric] = useState<boolean>(false)
   const menuRef = useRef<any>()
 
-  console.log(chart)
-
   function getTime(time: number) {
     const date = new Date(+new Date(time) - +new Date(0))
     const d = date.getDate()
