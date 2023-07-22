@@ -8,8 +8,6 @@ import ProcessTime from '../ProcessTime'
 const cx = classNames.bind(styles)
 
 function LiveStreamItem({ data }: { data: any }) {
-  console.log(data)
-
   return (
     <div className={cx('wrapper')}>
       <div className={cx('banner')}>

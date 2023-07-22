@@ -2,6 +2,7 @@ import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
 import { PlayNoIcon } from '~/components/Icons'
 import styles from './ResultsItem.module.scss'
+import useMusic from '~/hooks/useMusic'
 
 const cx = classNames.bind(styles)
 

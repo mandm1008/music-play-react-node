@@ -13,8 +13,6 @@ function Home() {
     getHome()
       .then((res) => res.data)
       .then((res) => {
-        // console.log(res)
-
         setHomeData(res.data.items)
       })
   }, [])

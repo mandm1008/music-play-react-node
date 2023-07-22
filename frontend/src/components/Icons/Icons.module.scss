@@ -164,6 +164,10 @@
   content: '\59';
 }
 
+.repeat-one::before {
+  content: '\5a';
+}
+
 .prev::before {
   content: '\56';
 }

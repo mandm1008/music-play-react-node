@@ -41,3 +41,7 @@
   cursor: pointer;
   z-index: 99;
 }
+
+.hidden-player {
+  --player-height: 0px;
+}

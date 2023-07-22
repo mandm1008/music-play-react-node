@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 32%;
+  width: 33.33333%;
   padding: 10px;
   border-radius: 4px;
 
@@ -82,6 +82,10 @@
     height: auto !important;
     box-sizing: content-box;
   }
+
+  .playing-icon {
+    border-radius: 0;
+  }
 }
 
 .content {
@@ -94,7 +98,6 @@
   margin-left: 12px;
   overflow: hidden;
 
-  h3,
   p,
   span {
     width: 100%;
@@ -103,7 +106,7 @@
     text-overflow: ellipsis;
   }
 
-  h3 {
+  h3 span {
     font-size: 1.4rem;
     color: var(--text-color);
   }
@@ -112,6 +115,26 @@
   span {
     font-size: 1.2rem;
     color: var(--text-sub-color);
+  }
+
+  &.disable {
+    & > h3 {
+      opacity: 0.6;
+      max-width: 100%;
+      display: flex;
+      align-items: center;
+
+      span {
+        display: inline-block;
+        width: calc(100% - 60px);
+      }
+    }
+    & > p {
+      opacity: 0.4;
+    }
+    & > span {
+      opacity: 0.6;
+    }
   }
 }
 

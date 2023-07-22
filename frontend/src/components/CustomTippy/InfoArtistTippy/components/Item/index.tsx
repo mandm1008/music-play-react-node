@@ -5,10 +5,13 @@ import styles from './Item.module.scss'
 import { getListArtistSong } from '~/servers'
 import { PlayNoIcon } from '~/components/Icons'
 import images from '~/assets/images'
+import useMusic from '~/hooks/useMusic'
+import { setMusic } from '~/components/store/actions'
 
 const cx = classNames.bind(styles)
 
 function Item({ id }: { id: string }) {
+  const [, dispatch] = useMusic()
   const [data, setData] = useState<any>()
 
   useEffect(() => {
@@ -24,7 +27,7 @@ function Item({ id }: { id: string }) {
           <div className={cx('image')}>
             <img src={item.thumbnailM} alt={item.title} />
 
-            <div className={cx('play')}>
+            <div className={cx('play')} onClick={() => dispatch(setMusic(item))}>
               <PlayNoIcon size={16} />
             </div>
           </div>

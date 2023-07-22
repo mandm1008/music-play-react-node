@@ -4,12 +4,16 @@ import styles from './DefaultLayout.module.scss'
 import Header from '../components/Header'
 import SideBar from '../components/SideBar'
 import Player from '../components/Player'
+import useMusic from '~/hooks/useMusic'
 
 const cx = classNames.bind(styles)
 
 function DefaultLayout({ children }: { children: React.ReactNode }) {
+  const [music, dispatch] = useMusic()
+  const currentMusic = music.items[music.index]
+
   return (
-    <div className={cx('wrapper')}>
+    <div className={cx('wrapper', { ['hidden-player']: !currentMusic })}>
       <div className={cx('sidebar')}>
         <SideBar />
       </div>

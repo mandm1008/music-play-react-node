@@ -54,6 +54,9 @@ export const LikeFullIcon: IconFun = ({ size, className }) => (
 )
 export const MoreIcon: IconFun = ({ size, className }) => <Icon className={className} icon="more" size={size} />
 export const RepeatIcon: IconFun = ({ size, className }) => <Icon className={className} icon="repeat" size={size} />
+export const RepeatOneIcon: IconFun = ({ size, className }) => (
+  <Icon className={className} icon="repeat-one" size={size} />
+)
 export const PrevIcon: IconFun = ({ size, className }) => <Icon className={className} icon="prev" size={size} />
 export const PlayIcon: IconFun = ({ size, className }) => <Icon className={className} icon="play" size={size} />
 export const PauseIcon: IconFun = ({ size, className }) => <Icon className={className} icon="pause" size={size} />
