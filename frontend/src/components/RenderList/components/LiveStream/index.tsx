@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styles from './LiveStream.module.scss'
 import { GoLeftIcon, GoRightIcon } from '~/components/Icons'
 import LiveStreamItem from './components/LiveStreamItem'
+import SliderItem from '~/components/SliderItem'
 
 const cx = classNames.bind(styles)
 
@@ -17,19 +18,9 @@ function LiveStream({ data }: { data: any }) {
         </Link>
       </h2>
 
-      <div className={cx('inner')}>
-        <button className={cx('nav', 'disable')}>
-          <GoLeftIcon size={18} />
-        </button>
-
-        <div className={cx('content')}>
-          {!!data.items && data.items.map((item: any, i: number) => <LiveStreamItem key={item.encodeId} data={item} />)}
-        </div>
-
-        <button className={cx('nav')}>
-          <GoRightIcon size={18} />
-        </button>
-      </div>
+      <SliderItem type="1" duration={data.items.length - 6}>
+        {!!data.items && data.items.map((item: any, i: number) => <LiveStreamItem key={item.encodeId} data={item} />)}
+      </SliderItem>
     </div>
   )
 }

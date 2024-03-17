@@ -1,24 +1,21 @@
-.wrapper {
-  margin-top: 20px;
+.container {
+  padding-top: 20px;
 }
 
 .title {
-  position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
-  margin-left: 12px;
-  margin-bottom: 24px;
   font-size: 2rem;
   color: var(--text-color);
+  margin-bottom: 16px;
+  position: relative;
 
-  .all {
+  .show {
     position: absolute;
+    right: 0;
     display: flex;
     align-items: center;
-    right: 0;
     font-size: 1.2rem;
-    font-weight: 400;
     color: var(--text-sub-color);
     text-transform: uppercase;
     line-height: 0;
