@@ -1,5 +1,9 @@
 function Follow() {
-  return <h2>Follow Page</h2>
+  return (
+    <div>
+      <h2>Follow Page</h2>
+    </div>
+  )
 }
 
 export default Follow

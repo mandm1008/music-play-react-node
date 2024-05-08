@@ -18,7 +18,7 @@ function LiveStream({ data }: { data: any }) {
         </Link>
       </h2>
 
-      <SliderItem type="1" duration={data.items.length - 6}>
+      <SliderItem type="1" all={data.items.length} visible={6} auto={5}>
         {!!data.items && data.items.map((item: any, i: number) => <LiveStreamItem key={item.encodeId} data={item} />)}
       </SliderItem>
     </div>

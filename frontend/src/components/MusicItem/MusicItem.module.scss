@@ -59,6 +59,41 @@
       display: block;
     }
   }
+
+  &.rank {
+    width: 30%;
+
+    .image {
+      width: 120px;
+      height: 120px;
+    }
+
+    .content {
+      min-height: 120px;
+      justify-content: flex-start;
+
+      .rank_index {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        span {
+          display: block;
+          font-size: 0.8rem;
+          font-weight: 900;
+          line-height: 1.56;
+          color: var(--text-color);
+        }
+
+        span:nth-child(1) {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
 }
 
 .image {

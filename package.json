@@ -1,5 +1,0 @@
-{
-  "scripts": {
-    "dev": "wt nt -p cmd -d . D:/Workspace/JavaScript/reactjs/music-player/frontend.cmd; sp -p cmd -d . D:/Workspace/JavaScript/reactjs/music-player/backend.cmd; ft -t 0 && start chrome http://localhost:3000"
-  }
-}
