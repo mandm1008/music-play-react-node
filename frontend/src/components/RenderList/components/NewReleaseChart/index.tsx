@@ -8,8 +8,6 @@ import SliderItem from '~/components/SliderItem'
 const cx = classNames.bind(style)
 
 function NewReleaseChart({ data }: { data: any }) {
-  console.log(data)
-
   return (
     <div className={cx('container')}>
       <h1 className={cx('title')}>

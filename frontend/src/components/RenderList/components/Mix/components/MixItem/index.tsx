@@ -5,8 +5,6 @@ import { PlayIcon } from '~/components/Icons'
 const cx = classNames.bind(styles)
 
 function MixItem({ data }: { data: any }) {
-  console.log(data)
-
   return (
     <div className={cx('wrapper')}>
       <img src={data.thumbnail} alt={data.title} className={cx('banner')} />

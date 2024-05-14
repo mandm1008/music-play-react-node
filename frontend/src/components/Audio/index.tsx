@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import useMusic from '~/hooks/useMusic'
 import { getSong } from '~/servers'
-import { setLoading, pauseMusic } from '../store/actions'
+import { setLoading, nextMusic } from '../store/actions'
 import { SET_TIME_MUSIC, VOLUME_CHANGE } from './events'
 
 function Audio() {
@@ -9,6 +9,20 @@ function Audio() {
   const [link, setLink] = useState<string>()
   const audioElement = useRef<HTMLAudioElement>(null)
   const runTimeData = useRef<string>()
+
+  console.log(music)
+
+  function onEndedEvent() {
+    console.log(audioElement)
+    if (audioElement.current) {
+      audioElement.current.currentTime = 0
+      audioElement.current.pause()
+      if (music.modeRepeat === 2) {
+        return audioElement.current.play()
+      }
+      dispatch(nextMusic())
+    }
+  }
 
   useEffect(() => {
     if (music.items.length > 0) {
@@ -20,8 +34,11 @@ function Audio() {
               dispatch(setLoading(true))
               setLink(data['128'])
             } else {
-              setLink('')
+              onEndedEvent()
             }
+          })
+          .catch(() => {
+            onEndedEvent()
           })
     } else {
       setLink(undefined)
@@ -70,13 +87,7 @@ function Audio() {
       onLoadedData={() => {
         dispatch(setLoading(false))
       }}
-      onEnded={(event) => {
-        if (music.modeRepeat === 2) {
-          event.currentTarget.play()
-        } else {
-          dispatch(pauseMusic())
-        }
-      }}
+      onEnded={onEndedEvent}
     ></audio>
   )
 }

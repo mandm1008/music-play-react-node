@@ -1,4 +1,4 @@
-import { init } from '~/components/store/reducer'
+import type { init } from '~/components/store/reducer'
 
 const key = 'music-player-setting'
 

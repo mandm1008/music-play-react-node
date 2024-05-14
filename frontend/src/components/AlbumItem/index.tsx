@@ -3,12 +3,21 @@ import styles from './AlbumItem.module.scss'
 import { TooltipTippy, MenuTippy } from '../CustomTippy'
 import { DATA_MORE_CONTROL } from './constants'
 import { LikeIcon, PlayIcon, MoreIcon } from '../Icons'
+import images from '~/assets/images'
 import { Link } from 'react-router-dom'
 import ArtistItem from '../ArtistItem'
+import useMusic from '~/hooks/useMusic'
+import { setPlaylists } from '../store/actions'
 
 const cx = classNames.bind(styles)
 
 function AlbumItem({ data }: { data: any }) {
+  const [music, setMusic] = useMusic()
+
+  async function playAlbum() {
+    setMusic(await setPlaylists(data.encodeId))
+  }
+
   return (
     <div className={cx('wrapper')}>
       <div className={cx('banner')}>
@@ -23,7 +32,13 @@ function AlbumItem({ data }: { data: any }) {
             </span>
           </TooltipTippy>
 
-          <PlayIcon size={50} className={cx('icon', 'play-icon')} />
+          <span onClick={playAlbum}>
+            {music.play && music.idPlaylist === data.encodeId ? (
+              <img width={40} height={40} className={cx('playing-icon')} src={images.playing} alt="Playing..." />
+            ) : (
+              <PlayIcon size={50} className={cx('icon', 'play-icon')} />
+            )}
+          </span>
 
           <MenuTippy data={DATA_MORE_CONTROL} placement="bottom-start">
             <TooltipTippy noDiv content={'Khác'} placement={'top'}>

@@ -31,7 +31,6 @@ const cx = classNames.bind(styles)
 function Player() {
   const [music, dispatch] = useMusic()
   const currentMusic = music.items[music.index]
-  console.log(currentMusic)
 
   return (
     currentMusic && (
