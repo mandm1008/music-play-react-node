@@ -1,5 +1,6 @@
 // Playlist
-export const SET_PLAYLIST_INFO = 'set_playlists'
+export const SET_PLAYLIST_INFO = 'set_playlist_info'
+export const ADD_PLAYLIST = 'add_playlist'
 
 // Music
 export const SET_MUSIC = 'set_music'

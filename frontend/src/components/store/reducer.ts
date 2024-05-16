@@ -12,7 +12,8 @@ import {
   TOGGLE_SHUFFLE,
   ADD_MUSIC,
   ADD_TOP_MUSIC,
-  ERROR
+  ERROR,
+  ADD_PLAYLIST
 } from './constants'
 
 export type init = {
@@ -49,6 +50,8 @@ function reducer(state: init, action: action): init {
       if (data.encodeId === state.idPlaylist) return state
 
       return { ...state, idPlaylist: data.encodeId, items: data.song.items, index: 0, play: true, rememberShuffle: [] }
+    case ADD_PLAYLIST:
+      return { ...state, items: [...state.items, ...action.payload] }
 
     // Music Case
     case SET_MUSIC:

@@ -8,8 +8,7 @@ import {
   ShareIcon
 } from '~/components/Icons'
 import styles from '../MusicItem.module.scss'
-import { toast } from '~/tools'
-import { DOMAIN } from '~/constants'
+import { copyToClipboard } from '~/tools'
 import useMusic from '~/hooks/useMusic'
 import { addMusic, addTopMusic } from '~/components/store/actions'
 
@@ -55,9 +54,7 @@ export const DATA_MENU_MUSIC_ITEM = (data: any, ...components: ((key: number) =>
       title: 'Sao chép link',
       props: {
         onClick: () => {
-          navigator.clipboard.writeText(DOMAIN + data.link).then(() => {
-            toast.create('success', 'Link đã được sao chép vào clipboard')
-          })
+          copyToClipboard(data.link)
         }
       }
     },

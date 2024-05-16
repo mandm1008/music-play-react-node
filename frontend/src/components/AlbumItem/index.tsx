@@ -40,7 +40,7 @@ function AlbumItem({ data }: { data: any }) {
             )}
           </span>
 
-          <MenuTippy data={DATA_MORE_CONTROL} placement="bottom-start">
+          <MenuTippy data={DATA_MORE_CONTROL(data)} placement="bottom-start">
             <TooltipTippy noDiv content={'Khác'} placement={'top'}>
               <span>
                 <MoreIcon size={20} className={cx('icon')} />

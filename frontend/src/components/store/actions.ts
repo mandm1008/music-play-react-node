@@ -1,6 +1,7 @@
 import { getDetailPlaylist } from '~/servers'
 import {
   ADD_MUSIC,
+  ADD_PLAYLIST,
   ADD_TOP_MUSIC,
   ERROR,
   MODE_REPEAT,
@@ -31,6 +32,13 @@ export const setPlaylists = async (idPlaylist: string) => {
   return {
     type: SET_PLAYLIST_INFO,
     payload: data.data.data
+  }
+}
+export const addPlaylists = async (idPlaylist: string) => {
+  const data = (await setPlaylists(idPlaylist)).payload
+  return {
+    type: ADD_PLAYLIST,
+    payload: data.song.items
   }
 }
 

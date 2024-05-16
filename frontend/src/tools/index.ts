@@ -1,4 +1,7 @@
 import axios from 'axios'
+import { getSong } from '~/servers'
+import { create as createToast } from './toast'
+import { DOMAIN } from '~/constants'
 
 export * as toast from './toast'
 export * as saveSetting from './saveSetting'
@@ -42,5 +45,21 @@ export function download(url: string, name: string) {
 
     document.body.removeChild(link)
     URL.revokeObjectURL(href)
+  })
+}
+
+export function downloadMusic(idMusic: string, name: string) {
+  getSong(idMusic)
+    .then((data) => data.data.data)
+    .then((link) => {
+      if (link) {
+        download(link['128'], `${name}.mp3`)
+      }
+    })
+}
+
+export function copyToClipboard(link: string) {
+  navigator.clipboard.writeText(DOMAIN + link).then(() => {
+    createToast('success', 'Link đã được sao chép vào clipboard')
   })
 }

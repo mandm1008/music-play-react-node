@@ -1,40 +1,41 @@
-import { forwardRef } from "react";
-import Tippy from "@tippyjs/react/headless";
-import { Placement } from "tippy.js";
-import classNames from "classnames/bind";
+import { forwardRef } from 'react'
+import Tippy from '@tippyjs/react/headless'
+import { Placement } from 'tippy.js'
+import classNames from 'classnames/bind'
 
-import styles from "./MenuTippy.module.scss";
-import Item from "~/layouts/components/SideBar/components/Item";
-import Spacer from "~/layouts/components/Spacer";
+import styles from './MenuTippy.module.scss'
+import Item from '~/layouts/components/SideBar/components/Item'
+import Spacer from '~/layouts/components/Spacer'
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(styles)
 
 interface DataMenuTippy {
-  icon: Icon;
-  title: string;
-  play?: IconFun;
+  icon: Icon
+  title: string
+  play?: IconFun
   props?: {
-    to?: string;
-    href?: string;
-  };
-  sub?: boolean;
-  component?: (key: number) => React.ReactNode;
-  className?: string;
+    to?: string
+    href?: string
+    onCLick?: () => any
+  }
+  sub?: boolean
+  component?: (key: number) => React.ReactNode
+  className?: string
 }
 
 interface Space {
-  spacer?: boolean;
+  spacer?: boolean
 }
 
 function MenuTippy(
   {
     data,
     children,
-    placement = "bottom-end",
+    placement = 'bottom-end'
   }: {
-    data: (DataMenuTippy & Space)[];
-    children: React.ReactNode;
-    placement?: Placement;
+    data: (DataMenuTippy & Space)[]
+    children: React.ReactNode
+    placement?: Placement
   },
   ref: any
 ) {
@@ -46,7 +47,7 @@ function MenuTippy(
       trigger="click"
       placement={placement}
       render={(attrs) => (
-        <div className={cx("menu-tippy")} tabIndex={-1} {...attrs}>
+        <div className={cx('menu-tippy')} tabIndex={-1} {...attrs}>
           {data.map(
             (item, i) =>
               (item.component && item.component(i)) ||
@@ -56,9 +57,9 @@ function MenuTippy(
                 <Item
                   key={i}
                   {...item.props}
-                  className={cx("menu-item", {
+                  className={cx('menu-item', {
                     submenu: item.sub,
-                    [item.className as any]: item.className,
+                    [item.className as any]: item.className
                   })}
                   icon={item.icon}
                   title={item.title}
@@ -71,9 +72,9 @@ function MenuTippy(
         </div>
       )}
     >
-      <div className={cx("tippy")}>{children}</div>
+      <div className={cx('tippy')}>{children}</div>
     </Tippy>
-  );
+  )
 }
 
-export default forwardRef(MenuTippy);
+export default forwardRef(MenuTippy)
