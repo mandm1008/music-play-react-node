@@ -7,6 +7,8 @@ import LyricModel from '../LyricModel'
 import { DATA_MENU_MUSIC_ITEM } from '../constants'
 import { MoreIcon, DownloadIcon, LyricIcon, DenialIcon } from '~/components/Icons'
 import InfoMusic from '../InfoMusic'
+import { getSong } from '~/servers'
+import { download } from '~/tools'
 
 const cx = classNames.bind(styles)
 
@@ -18,7 +20,7 @@ function MusicMoreSetting({ data, children, note }: { data: any; note?: string; 
 
   const MusicToolMini = (key: number) => (
     <div key={key} className={cx('tool-mini')}>
-      <div className={cx('tool-mini-item')}>
+      <div className={cx('tool-mini-item')} onClick={downloadMusic}>
         <DownloadIcon size={16} />
         Tải xuống
       </div>
@@ -44,6 +46,16 @@ function MusicMoreSetting({ data, children, note }: { data: any; note?: string; 
 
   function closeModelLyric() {
     setIsOpenLyric(false)
+  }
+
+  function downloadMusic() {
+    getSong(data.encodeId)
+      .then((data) => data.data.data)
+      .then((link) => {
+        if (link) {
+          download(link['128'], `${data.alias}.mp3`)
+        }
+      })
   }
 
   return (

@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export * as toast from './toast'
 export * as saveSetting from './saveSetting'
 
@@ -22,4 +24,23 @@ export function randomMusic(length: number, remember: number[]) {
   } else {
     return random
   }
+}
+
+export function download(url: string, name: string) {
+  axios({
+    url: url,
+    method: 'GET',
+    responseType: 'blob'
+  }).then((response) => {
+    const href = URL.createObjectURL(response.data)
+
+    const link = document.createElement('a')
+    link.href = href
+    link.setAttribute('download', `${name}`)
+    document.body.appendChild(link)
+    link.click()
+
+    document.body.removeChild(link)
+    URL.revokeObjectURL(href)
+  })
 }
