@@ -1,7 +1,6 @@
 .wrapper {
   padding: 0 14px;
   width: 25%;
-  max-height: 287px;
   overflow: hidden;
 }
 
@@ -93,7 +92,7 @@
     white-space: pre-line;
     text-overflow: ellipsis;
     overflow: hidden;
-    max-height: 32px;
+    max-height: 48px;
 
     span:last-child {
       white-space: nowrap;

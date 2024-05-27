@@ -21,7 +21,7 @@ export const DATA_MORE_CONTROL = (data: any) => {
       },
       title: 'Thêm vào danh sách phát',
       props: {
-        onCLick: async () => {
+        onClick: async () => {
           setMusic(await addPlaylists(data.encodeId))
         }
       }

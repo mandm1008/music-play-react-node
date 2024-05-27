@@ -9,7 +9,7 @@ import useMusic from '~/hooks/useMusic'
 const cx = classNames.bind(styles)
 
 function DefaultLayout({ children }: { children: React.ReactNode }) {
-  const [music, dispatch] = useMusic()
+  const [music] = useMusic()
   const currentMusic = music.items[music.index]
 
   return (

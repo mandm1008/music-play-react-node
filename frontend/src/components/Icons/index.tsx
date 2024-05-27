@@ -68,6 +68,8 @@ export const VolumeIcon: IconFun = ({ size, className }) => <Icon className={cla
 export const ListMusicIcon: IconFun = ({ size, className }) => (
   <Icon className={className} icon="list-music" size={size} />
 )
+export const ClockIcon: IconFun = ({ size, className }) => <Icon className={className} icon="clock" size={size} />
+export const TrashIcon: IconFun = ({ size, className }) => <Icon className={className} icon="trash" size={size} />
 
 //home
 export const GoLeftIcon: IconFun = ({ size, className }) => <Icon className={className} icon="go-left" size={size} />

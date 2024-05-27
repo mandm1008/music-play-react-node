@@ -208,6 +208,14 @@
   content: '\49';
 }
 
+.clock::before {
+  content: '\ea5b';
+}
+
+.trash::before {
+  content: '\73';
+}
+
 // home
 .go-left::before {
   content: '\7a';

@@ -13,15 +13,25 @@ function MusicItem({
   data,
   chart,
   rank,
-  active
+  active,
+  width,
+  playlist,
+  primary
 }: {
   data: any
   chart?: { rank: number; color: string; percent: number }
   rank?: number
   active?: boolean
+  width?: string
+  playlist?: boolean
+  primary?: boolean
 }) {
   const [music, dispatch] = useMusic()
-  const imgSize = rank ? 120 : 60
+  let imgSize = 60
+  let iconSize = 20
+  imgSize = rank ? 120 : imgSize
+  imgSize = playlist ? 30 : imgSize
+  iconSize = playlist ? 12 : iconSize
 
   function getTime(time: number) {
     const date = new Date(+new Date(time) - +new Date(0))
@@ -37,19 +47,29 @@ function MusicItem({
   }
 
   return (
-    <div className={cx('wrapper', { chart, active, rank })}>
+    <div className={cx('wrapper', { chart, active, rank, playlist, primary })} style={{ width }}>
       {chart && (
         <div className={cx('rank')} style={{ ['--cl' as any]: chart.color }}>
           {chart.rank + 1}
         </div>
       )}
 
-      <div className={cx('image')} onClick={data.isWorldWide ? playMusic : undefined}>
+      <div
+        className={cx('image')}
+        onClick={data.isWorldWide ? playMusic : undefined}
+        style={{ ['--img-size' as string]: `${imgSize}px` }}
+      >
         <img src={data.thumbnail} alt={data.title} width={imgSize} height={imgSize} />
         {music.play && music.items[music.index].encodeId === data.encodeId ? (
-          <img width={20} height={20} className={cx('playing-icon')} src={images.playing} alt="Playing..." />
+          <img
+            width={iconSize}
+            height={iconSize}
+            className={cx('playing-icon')}
+            src={images.playing}
+            alt="Playing..."
+          />
         ) : (
-          <PlayNoIcon size={20} className={cx('play-icon')} />
+          <PlayNoIcon size={iconSize} className={cx('play-icon')} />
         )}
       </div>
 
@@ -71,7 +91,7 @@ function MusicItem({
           )}
         </p>
 
-        {!chart && !rank && <span>{getTime(data.releaseDate)}</span>}
+        {!chart && !rank && !playlist && <span>{getTime(data.releaseDate)}</span>}
         {rank && (
           <div className={cx('rank_index')}>
             <span>#{rank}</span>
@@ -80,7 +100,7 @@ function MusicItem({
         )}
       </div>
 
-      {!chart && !rank && <MusicMoreSetting data={data}></MusicMoreSetting>}
+      {!chart && !rank && <MusicMoreSetting data={data} size={playlist ? 12 : undefined}></MusicMoreSetting>}
 
       {chart && <div className={cx('percent')}>{chart.percent + '%'}</div>}
     </div>

@@ -1,45 +1,50 @@
-import { useEffect, useRef, useState } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 import useMusic from '~/hooks/useMusic'
 import { getSong } from '~/servers'
-import { setLoading, nextMusic } from '../store/actions'
+import { setLoading, nextMusic, getSuggestMusic } from '../store/actions'
 import { SET_TIME_MUSIC, VOLUME_CHANGE } from './events'
 
-function Audio() {
+const Audio = forwardRef(function (props, ref: React.ForwardedRef<HTMLAudioElement>) {
   const [music, dispatch] = useMusic()
   const [link, setLink] = useState<string>()
-  const audioElement = useRef<HTMLAudioElement>(null)
+  let audioElement = !ref || typeof ref === 'function' ? useRef<HTMLAudioElement>(null) : ref
   const runTimeData = useRef<string>()
 
   console.log(music)
 
   function onEndedEvent() {
-    console.log(audioElement)
     if (audioElement.current) {
       audioElement.current.currentTime = 0
       audioElement.current.pause()
       if (music.modeRepeat === 2) {
         return audioElement.current.play()
       }
+      setLink(undefined)
       dispatch(nextMusic())
+      dispatch(setLoading(true))
     }
   }
 
   useEffect(() => {
     if (music.items.length > 0) {
       if (music.items[music.index].encodeId !== runTimeData.current)
-        getSong(music.items[music.index].encodeId)
-          .then((data) => data.data.data)
-          .then((data) => {
-            if (data) {
-              dispatch(setLoading(true))
-              setLink(data['128'])
-            } else {
+        if (music.items[music.index].isWorldWide)
+          getSong(music.items[music.index].encodeId)
+            .then((data) => data.data.data)
+            .then((data) => {
+              if (data) {
+                setLink(data['128'])
+                ;(async () => dispatch(await getSuggestMusic(music)))()
+              } else {
+                onEndedEvent()
+              }
+            })
+            .catch(() => {
               onEndedEvent()
-            }
-          })
-          .catch(() => {
-            onEndedEvent()
-          })
+            })
+        else {
+          onEndedEvent()
+        }
     } else {
       setLink(undefined)
     }
@@ -61,7 +66,7 @@ function Audio() {
   }, [link])
 
   useEffect(() => {
-    if (music.play && link) {
+    if (music.play && link && !music.loading) {
       audioElement.current !== null && audioElement.current.play()
     } else {
       audioElement.current !== null && audioElement.current.pause()
@@ -82,7 +87,7 @@ function Audio() {
 
   return (
     <audio
-      ref={audioElement}
+      ref={!ref || typeof ref === 'function' ? audioElement : ref}
       src={link}
       onLoadedData={() => {
         dispatch(setLoading(false))
@@ -90,6 +95,6 @@ function Audio() {
       onEnded={onEndedEvent}
     ></audio>
   )
-}
+})
 
 export default Audio

@@ -2,7 +2,6 @@ import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
 import { PlayNoIcon } from '~/components/Icons'
 import styles from './ResultsItem.module.scss'
-import useMusic from '~/hooks/useMusic'
 
 const cx = classNames.bind(styles)
 
@@ -16,6 +15,7 @@ function ResultsItem({ data }: { data: any[] }) {
           const description =
             item.sortDescription ||
             (item.artists ? item.artists.map((item: any) => item.name).join(', ') : 'Nghệ sĩ | ') +
+              ' ' +
               (item.totalFollow < 1000 ? item.totalFollow : Math.floor(item.totalFollow / 1000) + 'K quan tâm')
 
           return (

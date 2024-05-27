@@ -1,5 +1,7 @@
 import { axios } from '../config'
 
+export * as userService from './user'
+
 export const getHome = () => axios.get<any>('/')
 
 export const getArtist = (name: string) => axios.get<any>(`artist?name=${name}`)

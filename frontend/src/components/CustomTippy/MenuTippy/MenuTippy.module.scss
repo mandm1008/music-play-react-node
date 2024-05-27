@@ -1,5 +1,9 @@
 .tippy {
   margin-left: 10px;
+
+  &.noMG {
+    margin-left: 0;
+  }
 }
 
 .menu-tippy {

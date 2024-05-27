@@ -1,4 +1,4 @@
-import { getDetailPlaylist } from '~/servers'
+import { getDetailPlaylist, getListArtistSong } from '~/servers'
 import {
   ADD_MUSIC,
   ADD_PLAYLIST,
@@ -9,9 +9,11 @@ import {
   PAUSE_MUSIC,
   PLAY_MUSIC,
   PREV_MUSIC,
+  SET_AUTOPLAY,
   SET_LOADING,
   SET_MUSIC,
   SET_PLAYLIST_INFO,
+  SUGGEST_MUSIC,
   TOGGLE_MUSIC,
   TOGGLE_SHUFFLE
 } from './constants'
@@ -57,6 +59,43 @@ export const addTopMusic = (payload: any) => ({
   type: ADD_TOP_MUSIC,
   payload
 })
+export const getSuggestMusic = async (music: any) => {
+  if (music.items.length > 0) {
+    let ids = music.items[music.index].artists.map((artist: any) => artist.id)
+
+    const data = await Promise.all(
+      ids.map((id: string) =>
+        getListArtistSong(id, 1, 10)
+          .then((res) => res.data.data)
+          .then((data: any) => data.items)
+      )
+    ).then((value: any[]) => {
+      value = value.reduce((prev, curr) => [...prev, ...curr], [])
+
+      value = value.reduce((prev, curr) => {
+        if (
+          music.items.findIndex((item: any) => item.encodeId === curr.encodeId) === -1 &&
+          prev.findIndex((item: any) => item.encodeId === curr.encodeId) === -1
+        ) {
+          return [...prev, curr]
+        }
+
+        return prev
+      }, [])
+
+      return value
+    })
+
+    return {
+      type: SUGGEST_MUSIC,
+      payload: data
+    }
+  }
+
+  return {
+    type: ERROR
+  }
+}
 
 /**
  * @for control.action
@@ -84,5 +123,9 @@ export const toggleShuffle = () => ({
 })
 export const setLoading = (payload: boolean) => ({
   type: SET_LOADING,
+  payload
+})
+export const setAutoPlay = (payload: boolean) => ({
+  type: SET_AUTOPLAY,
   payload
 })

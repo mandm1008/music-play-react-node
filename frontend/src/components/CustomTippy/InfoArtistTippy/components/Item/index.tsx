@@ -18,7 +18,7 @@ function Item({ id }: { id: string }) {
     getListArtistSong(id, 1, 4)
       .then((res) => res.data.data)
       .then((res) => setData(res))
-  }, [])
+  }, [id])
 
   return data ? (
     data.items &&

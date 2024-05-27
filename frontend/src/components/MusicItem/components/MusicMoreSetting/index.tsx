@@ -7,12 +7,21 @@ import LyricModel from '../LyricModel'
 import { DATA_MENU_MUSIC_ITEM } from '../constants'
 import { MoreIcon, DownloadIcon, LyricIcon, DenialIcon } from '~/components/Icons'
 import InfoMusic from '../InfoMusic'
-import { getSong } from '~/servers'
 import { downloadMusic } from '~/tools'
 
 const cx = classNames.bind(styles)
 
-function MusicMoreSetting({ data, children, note }: { data: any; note?: string; children?: JSX.Element }) {
+function MusicMoreSetting({
+  data,
+  children,
+  note,
+  size
+}: {
+  data: any
+  note?: string
+  children?: JSX.Element
+  size?: number
+}) {
   const menuRef = useRef<any>(null)
   const [isOpenLyric, setIsOpenLyric] = useState<boolean>(false)
 
@@ -51,10 +60,10 @@ function MusicMoreSetting({ data, children, note }: { data: any; note?: string; 
   return (
     <>
       <MenuTippy ref={menuRef} placement="right" data={DATA_MENU_MUSIC_ITEM(data, MusicInfoMini, MusicToolMini) as any}>
-        <TooltipTippy noDiv content={note || 'Khác'} placement="top">
+        <TooltipTippy content={note || 'Khác'} placement="top">
           {children || (
             <div className={cx('more')}>
-              <MoreIcon size={16} />
+              <MoreIcon size={size || 16} />
             </div>
           )}
         </TooltipTippy>

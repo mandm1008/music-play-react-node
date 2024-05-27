@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind'
+import { useRef, useState } from 'react'
 import {
   StarFullIcon,
   LikeFullIcon,
@@ -25,12 +26,36 @@ import { modeRepeat, nextMusic, prevMusic, toggleMusic, toggleShuffle } from '~/
 import ArtistItem from '~/components/ArtistItem'
 import MusicMoreSetting from '~/components/MusicItem/components/MusicMoreSetting'
 import Volume from './components/Volume'
+import Playlist from './components/Playlist'
+import Audio from '~/components/Audio'
 
 const cx = classNames.bind(styles)
 
 function Player() {
   const [music, dispatch] = useMusic()
   const currentMusic = music.items[music.index]
+  const [showPlaylist, setShowPlaylist] = useState(false)
+  const audioElement = useRef<HTMLAudioElement>(null)
+
+  function togglePlaylist() {
+    setShowPlaylist((prev) => !prev)
+  }
+
+  function prev() {
+    audioElement.current && audioElement.current.pause()
+    dispatch(prevMusic())
+  }
+
+  function play() {
+    dispatch(toggleMusic())
+  }
+
+  function next() {
+    if (audioElement.current) {
+      audioElement.current.pause()
+    }
+    dispatch(nextMusic())
+  }
 
   return (
     currentMusic && (
@@ -54,8 +79,8 @@ function Player() {
               size={32}
               icon={{ Icon: LikeFullIcon, size: 16 }}
             />
-            <MusicMoreSetting data={currentMusic}>
-              <Button content="Xem thêm" placement="top" size={32} icon={{ Icon: MoreIcon, size: 16 }} />
+            <MusicMoreSetting data={currentMusic} note="Xem thêm">
+              <Button placement="top" size={32} icon={{ Icon: MoreIcon, size: 16 }} />
             </MusicMoreSetting>
           </div>
         </div>
@@ -73,39 +98,24 @@ function Player() {
               }}
             />
 
-            <Button
-              size={32}
-              icon={{ Icon: PrevIcon, size: 16 }}
-              onClick={() => {
-                dispatch(prevMusic())
-              }}
-              style={{ marginLeft: '10px' }}
-            />
+            <Button size={32} icon={{ Icon: PrevIcon, size: 16 }} onClick={prev} style={{ marginLeft: '10px' }} />
 
             <Button
               hoverPrimary
               size={50}
               icon={
-                !music.loading
+                !music.loading || !music.play
                   ? {
                       Icon: music.play ? PauseIcon : PlayIcon,
                       size: 40
                     }
                   : undefined
               }
-              image={music.loading ? { src: images.loading, alt: 'Loading...' } : undefined}
-              onClick={() => {
-                dispatch(toggleMusic())
-              }}
+              image={music.loading && music.play ? { src: images.loading, alt: 'Loading...' } : undefined}
+              onClick={play}
             />
 
-            <Button
-              size={32}
-              icon={{ Icon: NextIcon, size: 16 }}
-              onClick={() => {
-                dispatch(nextMusic())
-              }}
-            />
+            <Button size={32} icon={{ Icon: NextIcon, size: 16 }} onClick={next} />
 
             <Button
               content={
@@ -143,8 +153,13 @@ function Player() {
             size={30}
             icon={{ Icon: ListMusicIcon, size: 16 }}
             noMG
+            onClick={togglePlaylist}
           />
         </div>
+
+        <Playlist show={showPlaylist} />
+
+        <Audio ref={audioElement} />
       </div>
     )
   )

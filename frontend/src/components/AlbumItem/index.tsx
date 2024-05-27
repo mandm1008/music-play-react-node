@@ -68,7 +68,7 @@ function AlbumItem({ data }: { data: any }) {
                 i > 0
                   ? [...prev, ', ', <ArtistItem key={i} data={crr} />]
                   : [...prev, <ArtistItem key={i} data={crr} />],
-              []
+              [' ']
             )}
         </p>
       </div>
