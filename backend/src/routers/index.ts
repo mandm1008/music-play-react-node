@@ -1,5 +1,6 @@
 import { Express } from 'express'
 import { ZingMp3Controller } from '../controllers'
+import UserRouter from './user'
 
 function routing(app: Express) {
   app.get('/search', ZingMp3Controller.search)
@@ -16,6 +17,8 @@ function routing(app: Express) {
   app.get('/category-mv', ZingMp3Controller.getCategoryMV)
   app.get('/artist', ZingMp3Controller.getArtist)
   app.get('/', ZingMp3Controller.getHome)
+
+  app.use('/user', UserRouter)
 }
 
 export default routing

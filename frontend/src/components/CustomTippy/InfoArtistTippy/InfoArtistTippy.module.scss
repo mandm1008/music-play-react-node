@@ -1,0 +1,140 @@
+.wrapper {
+  width: 348px;
+  border-radius: 8px;
+  background-color: var(--primary-bg);
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  padding-bottom: 0;
+
+  .artist {
+    display: flex;
+    align-items: center;
+
+    .thumbnail {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      &:hover {
+        img {
+          scale: 1.1;
+        }
+
+        .play {
+          display: flex;
+        }
+      }
+
+      img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        transition: scale 0.4s ease;
+      }
+
+      .play {
+        position: absolute;
+        inset: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--hover-bg);
+        cursor: pointer;
+      }
+    }
+
+    .name {
+      height: 100%;
+      margin-left: 8px;
+
+      h4 {
+        padding-bottom: 4px;
+        font-size: 1.4rem;
+        color: var(--text-color);
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: var(--text-sub-color);
+      }
+    }
+  }
+
+  .sub {
+    display: flex;
+    align-items: center;
+    padding: 4px 12px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-radius: 99px;
+    border: 1px solid var(--hover-bg);
+    background-color: rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: opacity 0.1s linear;
+
+    .icon {
+      margin-right: 8px;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+.description {
+  position: relative;
+  margin-top: 16px;
+  padding: 0 16px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  overflow: hidden;
+  white-space: pre-line;
+  text-overflow: ellipsis;
+  max-height: 36px;
+
+  span {
+    display: inline-block;
+  }
+
+  span:nth-child(2) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 55px);
+  }
+
+  .view-more {
+    position: absolute;
+    bottom: 0;
+    right: 16px;
+    white-space: nowrap;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.latest {
+  padding: 16px;
+
+  h3 {
+    margin-bottom: 8px;
+  }
+
+  .content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}

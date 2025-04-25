@@ -1,0 +1,31 @@
+.wrapper {
+  margin-top: 20px;
+}
+
+.title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: 12px;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  color: var(--text-color);
+
+  .all {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-sub-color);
+    text-transform: uppercase;
+    line-height: 0;
+
+    .icon {
+      display: inline-block;
+      margin-left: 8px;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.name {
+  color: var(--text-sub-color) !important;
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--link-text-hover) !important;
+  }
+}

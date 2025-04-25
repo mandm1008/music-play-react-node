@@ -1,0 +1,28 @@
+.container {
+  padding-top: 20px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 16px;
+  position: relative;
+
+  .show {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    color: var(--text-sub-color);
+    text-transform: uppercase;
+    line-height: 0;
+
+    .icon {
+      display: inline-block;
+      margin-left: 8px;
+    }
+  }
+}
